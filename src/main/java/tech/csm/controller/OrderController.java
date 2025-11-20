@@ -1,4 +1,4 @@
-package csm.tech.controller;
+package tech.csm.controller;
 
 import java.util.List;
 
