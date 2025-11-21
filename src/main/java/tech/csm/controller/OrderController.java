@@ -1,7 +1,9 @@
 package tech.csm.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +17,7 @@ import tech.csm.util.HibernateUtil;
 @WebServlet("/orders")
 
 public class OrderController extends HttpServlet {
-	public void doGet(HttpServletRequest req, HttpServletResponse res) {
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 //		open a session
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
@@ -24,16 +26,13 @@ public class OrderController extends HttpServlet {
         String hql = "from Order o where o.customer.customerId =1";
         List<Order> orders = session.createQuery(hql, Order.class)
                                     .list();
-
-        for(Order o : orders) {
-//        	 print only the fields you explicitly access
-            System.out.println(o.getOrderId() + " | " +
-                               o.getOrderDate() +  " | " +
-                               o.getQuantity());
-                               
-        }        
+         
 
         session.close();
+        
+//        forwading request to orders jsp
+        req.setAttribute("orders",orders);
+        req.getRequestDispatcher("orders.jsp").forward(req, res);
     }
 
     public void destroy() {
