@@ -20,7 +20,7 @@
     </tr>
 
 <%
-    List<Order> orders = (List<Order>) request.getAttribute("orders");
+    List<Order> orders = (List<Order>) request.getAttribute("orders");  //receiving the forwaded req from orders servlet
 
     if (orders != null) {
         for (Order o : orders) {

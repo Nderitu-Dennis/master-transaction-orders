@@ -18,12 +18,16 @@ import tech.csm.util.HibernateUtil;
 
 public class OrderController extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-//		open a session
+/*	open a session
+		* A Session- lightweight connection to the DB
+		You use it to save, update, delete, or query entities.
+		*/
+		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
 
         // HQL: all orders for customer id=1
-        String hql = "from Order o where o.customer.customerId =1";
+        String hql = "from Order";
         List<Order> orders = session.createQuery(hql, Order.class)
                                     .list();
          

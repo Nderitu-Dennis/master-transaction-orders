@@ -9,6 +9,10 @@ import tech.csm.entity.Product;
 
 public class HibernateUtil {
 	
+/*	SessionFactory- factory for DB sessions.heavy-weight & usually created once per application.
+	* holds configuration details for DB (dialect, connection pool, mappings, etc.
+	*/
+
 	private static SessionFactory sessionFactory=null;
 	
 	static {
