@@ -60,6 +60,22 @@ public class Order implements Serializable {
 		this.quantity = quantity;
 	}
 
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
 	@Override
 	public String toString() {
 		return "Order [orderId=" + orderId + ", orderDate=" + orderDate + ", quantity=" + quantity + ", customer="
