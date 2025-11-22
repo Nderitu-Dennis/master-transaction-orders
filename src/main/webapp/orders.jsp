@@ -10,7 +10,14 @@
 </head>
 <body  style="margin-left:40px;">
 
-<h2>Customer Orders</h2>
+<h2 align="center">Customer Orders</h2>
+
+<a href="orders?action=insert">Insert Order</a> |
+<a href="orders?action=update">Update Order</a> |
+<a href="orders?action=delete">Delete Order</a>
+
+<br>
+<br>
 
 <table border="1" cellpadding="5" cellspacing="0">
     <tr>
